@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TrevelPlannerKelana</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Home">hoome</string>
+    <string name="Plan">plan</string>
+    <string name="Profile">profile</string>
+    <string name="quotes_login">Kalau kamu sudah mempunyai akun</string>
+    <string name="register_quotes">Kalau kamu sang pengelana baru</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="nama">nama</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/Home"
+        android:icon="@drawable/ic_home_active"/>
+    <item
+        android:id="@+id/planFragment"
+        android:title="@string/Plan"
+        android:icon="@drawable/ic_plan_active"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/Profile"
+        android:icon="@drawable/ic_profile_active"/>
+</menu>
