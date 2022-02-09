@@ -35,6 +35,7 @@ class SubLocationAdapter(val ArrSubLocation: ArrayList<SubLocation>, val collect
                 bundle.putString("d1", ArrSubLocation[position].code)
                 bundle.putString("nama", ArrSubLocation[position].name)
                 bundle.putString("foto", ArrSubLocation[position].img)
+                bundle.putString("peta", ArrSubLocation[position].map)
                 holder.itemView.findNavController().navigate(R.id.action_subLocationFragment_to_detailFragment, bundle)
             }
         }

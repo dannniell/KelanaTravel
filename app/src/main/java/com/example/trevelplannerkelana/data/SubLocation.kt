@@ -7,5 +7,6 @@ import kotlinx.android.parcel.Parcelize
 data class SubLocation(
     var name:String,
     var img:String,
-    var code:String
+    var code:String,
+    var map:String
 ): Parcelable

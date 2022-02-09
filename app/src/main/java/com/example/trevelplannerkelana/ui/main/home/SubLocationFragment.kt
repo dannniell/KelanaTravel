@@ -56,7 +56,8 @@ class SubLocationFragment : Fragment() {
                     SubLocation(
                         document.data["name"].toString(),
                         document.data["img"].toString(),
-                        document.data["code"].toString()
+                        document.data["code"].toString(),
+                        document.data["map"].toString()
                     )
                 )
             }

@@ -33,6 +33,7 @@ class DetailFragment : Fragment() {
     lateinit var collectionDetaill: String
     lateinit var nama: String
     lateinit var foto: String
+    lateinit var peta: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,6 +44,7 @@ class DetailFragment : Fragment() {
         codeDetail = arguments?.getString("d1").toString()
         nama = arguments?.getString("nama").toString()
         foto = arguments?.getString("foto").toString()
+        peta = arguments?.getString("peta").toString()
 
         var dataDetailImg: ArrayList<DetailImg>?
 
@@ -86,6 +88,7 @@ class DetailFragment : Fragment() {
 
 
 
+        //button add plan
         binding.btnAddPlan.setOnClickListener {
             //benerin ini dulu bre pharsing email biar bisa sama web
             var email:String
@@ -104,7 +107,8 @@ class DetailFragment : Fragment() {
                                 "code" to codeDetail,
                                 "collectionData" to collectionDetaill,
                                 "name" to nama,
-                                "img" to foto
+                                "img" to foto,
+                                "map" to peta
                             )
                             firestore.collection("users").document(email).collection("plan").document(codeDetail)
                                 .set(setPlan)

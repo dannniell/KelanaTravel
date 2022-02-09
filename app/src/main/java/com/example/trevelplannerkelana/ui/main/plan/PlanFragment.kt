@@ -1,6 +1,9 @@
 package com.example.trevelplannerkelana.ui.main.plan
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +41,11 @@ class PlanFragment : Fragment() {
 
         var dataPlanCard: ArrayList<Plan>
 
+        //url shortpath
+        var direct =  arrayListOf("https://www.google.com/maps/dir/My+Location")
+      //  direct = "https://www.google.com/maps/dir/My+Location"
+
+
         var email:String
         firestore.collection("users").document(userID.toString()).get()
             .addOnSuccessListener { document ->
@@ -48,6 +56,14 @@ class PlanFragment : Fragment() {
                             result ->
                         dataPlanCard = ArrayList()
                         for (document in result){
+                            //direct!!.add(
+                             //   document.data["map"].toString()
+                            //)
+                            //url + all plan
+                            var dir: String
+                            dir = document.data["map"].toString()
+                            direct.add(dir)
+                            //
                             dataPlanCard!!.add(
                                 Plan(
                                     document.data["img"].toString(),
@@ -60,12 +76,29 @@ class PlanFragment : Fragment() {
                         binding.recyclePlan.layoutManager = LinearLayoutManager(activity)
                         binding.recyclePlan.adapter = PlanAdapter(dataPlanCard!!)
 
+
+                        //Log.d(tag, message)
+
+                        var datamap = direct.joinToString(separator = "")
+                       // binding.btnShortPath.text = datamap
+
+
+                        //button direction intent google maps
+                        binding.btnShortPath.setOnClickListener {
+                            // Create a Uri from an intent string. Use the result to create an Intent.
+                            val gmmIntentUri = Uri.parse(datamap)
+
+                            // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                            // Make the Intent explicit by setting the Google Maps package
+                            mapIntent.setPackage("com.google.android.apps.maps")
+
+                            // Attempt to start an activity that can handle the Intent
+                            startActivity(mapIntent)
+                        }
                     }
 
             }
-
-
-
 
     }
 }
